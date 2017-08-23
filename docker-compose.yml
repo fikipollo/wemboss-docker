@@ -1,0 +1,21 @@
+version: '2'
+services:
+
+    instance1-wemboss:
+      image: fikipollo/wemboss
+      container_name: instance1-wemboss
+      environment:
+        - ADMIN_USER=myadmin
+        - ADMIN_PASS=supersecret
+      depends_on:
+        - instance1-wemboss-data
+      volumes_from:
+        - instance1-wemboss-data
+      ports:
+        - "8042:80"
+
+    instance1-wemboss-data:
+      image: busybox
+      container_name: instance1-wemboss-data
+      volumes:
+        - /home/foo/dockers/wemboss/data:/data

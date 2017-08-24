@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="b3galaxyApp">
+<head>
+    <title>wEMBOSS</title>
+    <!--ONLINE REQUIREMENTS-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+    <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet" type='text/css'>
+    <!--ONLINE REQUIREMENTS-->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        .box{
+            border: 5px solid #eee; margin: 3px; padding: 10px; border-radius: 10px; min-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid" style="max-width: 1280px;">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default" role="navigation" style="margin-top:5px;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </button> <a class="navbar-brand" href="#">wEMBOSS: a web interface for EMBOSS</a>
+                    </div>
+                </nav>
+                <div class="jumbotron">
+                    <h2>Welcome to wEMBOSS!</h2>
+                    <p>wEMBOSS is a simple and powerful interface which can be installed in 5 min. EMBOSS programs are (<a href="http://emboss.sourceforge.net/" target="_blank">Rice et al., 2000</a>) typically accessed from the command line or console. wEMBOSS provides a user-friendly way to access all EMBOSS programs, with tools that help to organize work and review it later.</p>
+                    <p>wEMBOSS is an Open Source software released under the GPL license as well as EMBOSS.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" style="text-align: center;">
+                <div class="box">
+                    <h2>Launch wEMBOSS!</h2>
+                    <p>Click here to start a new session with wEMBOSS.</p>
+                    <p><a class="btn btn-success btn-lg" href="/wEMBOSS_cgi/catch?_action=start" target="_blank">Launch wEMBOSS</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <div  class="box">
+                    <h2>Admin page</h2>
+                    <p>Administrate the user accounts for your wEMBOSS server.</p>
+                    <p><a class="btn btn-warning btn-lg" href="/wEMBOSS_cgi/admin" target="_blank">Launch wEMBOSS admin</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <div  class="box">
+                    <h3>wEMBOSS: a web interface for EMBOSS</h3>
+                    <p>Sarachu M, Colet M. Bioinformatics. 2005 Feb 15;21(4):540-1. Epub 2004 Sep 23. <a href="https://doi.org/10.1093/bioinformatics/bti031">https://doi.org/10.1093/bioinformatics/bti031</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

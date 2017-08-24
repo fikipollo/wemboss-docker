@@ -121,6 +121,8 @@ sub create_accounts {
         }
     }
     print "</div>";
+
+    $q->delete_all();
 }
 
 # Outputs a web form

@@ -1,12 +1,13 @@
 ############################################################
 # Dockerfile to build wEMBOSS container image for the eBioKit
-# Based on ubuntu:14.04
-# Version 0.1 June 2017
+# Based on ubuntu:16.04
+# Version 0.1 August 2017
 # TODO LIST:
-# - Clean data to reduce image size
+# - Use alpine linux to reduce image size
+# - Sign up form
 ############################################################
 
-# Set the base image to official HTTP
+# Set the base image to official ubuntu:16.04
 FROM ubuntu:16.04
 
 # File Author / Maintainer
@@ -23,6 +24,7 @@ RUN apt-get update \
 #Copy files
 COPY configs/* /tmp/
 
+#Install wEMBOSS and admin tools
 RUN curl -L https://ayera.dl.sourceforge.net/project/wemboss/wEMBOSS/2.2.1/wEMBOSSDIST-2.2.1.tar.gz | \
     tar xzf - --strip-components=1 -C /tmp \
     && cd /tmp/wEMBOSSinstall/ \
@@ -30,12 +32,12 @@ RUN curl -L https://ayera.dl.sourceforge.net/project/wemboss/wEMBOSS/2.2.1/wEMBO
     && mv /tmp/wemboss.conf /etc/apache2/sites-enabled/000-default.conf \
     && mv /tmp/entrypoint.sh /usr/bin/entrypoint.sh \
     && chmod +x /usr/bin/entrypoint.sh \
+    && mv /tmp/index.html /var/www/html/ \
     && mv /tmp/catch* /usr/local/wEMBOSS/wEMBOSS_cgi/ \
     && mv /tmp/admin* /usr/local/wEMBOSS/wEMBOSS_cgi/ \
     && chmod 700 /usr/local/wEMBOSS/wEMBOSS_cgi/* \
-    && rm -r /tmp/*
-
-RUN sed -i 's#/var/www#/usr/local/wEMBOSS/wEMBOSS_cgi#g' /etc/apache2/suexec/www-data \
+    && rm -r /tmp/* \
+    && sed -i 's#/var/www#/usr/local/wEMBOSS/wEMBOSS_cgi#g' /etc/apache2/suexec/www-data \
     && useradd -m wemboss \
     && htpasswd -b -c /usr/local/wEMBOSS/.htpasswd admin 123 \
     && htpasswd -b /usr/local/wEMBOSS/.htpasswd test test \

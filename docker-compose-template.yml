@@ -1,7 +1,7 @@
 ############################################################
 # Launcher for wEMBOSS container for the eBioKit
 # This is a template, the following values must be replaced:
-#   - $${INSTANCE}, name for the instance
+#   - $${INSTANCE_NAME}, name for the instance
 #   - $${ADMIN_USER}, name for admin user
 #   - $${ADMIN_PASS}, password for admin user
 #   - $${APP_1_PORT_1}, port number for wEMBOSS instance
@@ -11,21 +11,21 @@
 version: '2'
 services:
 
-    $${INSTANCE}-wemboss:
+    $${INSTANCE_NAME}-wemboss:
       image: fikipollo/wemboss
-      container_name: $${INSTANCE}-wemboss
+      container_name: $${INSTANCE_NAME}-wemboss
       environment:
         - ADMIN_USER=$${ADMIN_USER}
         - ADMIN_PASS=$${ADMIN_PASS}
       depends_on:
-        - $${INSTANCE}-wemboss-data
+        - $${INSTANCE_NAME}-wemboss-data
       volumes_from:
-        - $${INSTANCE}-wemboss-data
+        - $${INSTANCE_NAME}-wemboss-data
       ports:
         - "$${APP_1_PORT_1}:80"
 
-    $${INSTANCE}-wemboss-data:
+    $${INSTANCE_NAME}-wemboss-data:
       image: busybox
-      container_name: $${INSTANCE}-wemboss-data
+      container_name: $${INSTANCE_NAME}-wemboss-data
       volumes:
         - $${DATA_LOCATION}/data:/data

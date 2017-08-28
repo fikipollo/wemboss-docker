@@ -12,7 +12,7 @@ services:
       volumes_from:
         - instance1-wemboss-data
       ports:
-        - "8042:80"
+        - "8092:80"
 
     instance1-wemboss-data:
       image: busybox

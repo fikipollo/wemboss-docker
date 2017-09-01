@@ -66,3 +66,7 @@ The wEMBOSS docker accepts the following variables that modify the behavior of t
 
     - **ADMIN_USER**, the name for the admin account. Using this account you can access to the admin portal (e.g. [http://yourserver:8092/wEMBOSS/admin](http://yourserver:8092/wEMBOSS/admin)) and manipulate the registered users in the system.
     - **ADMIN_USER**, the password for the admin user.
+
+
+# Version log
+  - v0.9 August 2017: First version of the docker.
